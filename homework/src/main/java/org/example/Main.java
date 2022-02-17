@@ -9,7 +9,7 @@ public class Main {
         school.newStudent("Valaki2");
         school.newStudent("Valaki3");
 
-        System.out.println(school.toString());
+        System.out.println(school);
     }
 
 }
