@@ -1,15 +1,20 @@
 package org.example;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 public class Main {
 
     public static void main(String[] args) {
-        Students school = new Students();
+        ApplicationContext ac = new AnnotationConfigApplicationContext("org.example");
 
-        school.newStudent("Valaki1");
-        school.newStudent("Valaki2");
-        school.newStudent("Valaki3");
+        School sc = ac.getBean(School.class);
 
-        System.out.println(school);
+        sc.newStudent("Valaki1");
+        sc.newStudent("Valaki2");
+        sc.newStudent("Valaki3");
+
+        System.out.println(sc);
     }
 
 }
