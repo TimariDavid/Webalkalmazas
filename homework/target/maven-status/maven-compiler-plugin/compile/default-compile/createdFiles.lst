@@ -1,3 +1,6 @@
 org\example\Main.class
-org\example\ApplcationConfiguration.class
+org\example\Controller.class
+org\example\FetchDataService.class
+org\example\ApplicationConfiguration.class
 org\example\School.class
+org\example\StudentModel.class
