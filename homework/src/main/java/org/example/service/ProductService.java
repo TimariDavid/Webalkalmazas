@@ -1,15 +1,22 @@
 package org.example.service;
 
-public class ProductService {
+import org.example.DTO.ProductDTO;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface ProductService {
 
     List<ProductDTO> findAll();
 
-    Optional<ProductDTO> findById();
+    Optional<ProductDTO> findById(Long id);
 
-    Optional<ProductDTO> findbByType();
+    @Query("SELECT * FROM Product u WHERE u.type = :type")
+    Optional<ProductDTO> findByType(String type);
 
-    ProductDTO create();
+    ProductDTO create(ProductDTO productDTO);
 
-    void delete();
+    void delete(Long id);
 
 }

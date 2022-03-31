@@ -1,19 +1,22 @@
 package org.example.service.impl;
 
+import org.example.DTO.ProductDTO;
 import org.example.entity.Product;
 import org.example.repository.ProductRepository;
+import org.example.service.ProductService;
 import org.modelmapper.ModelMapper;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class ProductServiceImpl {
+public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
     private final ModelMapper modelMapper;
 
     public ProductServiceImpl(ProductRepository productRepository, ModelMapper modelMapper) {
-        this.productRepository = movieRepository;
+        this.productRepository = productRepository;
         this.modelMapper = modelMapper;
     }
 
@@ -32,7 +35,12 @@ public class ProductServiceImpl {
     }
 
     @Override
-    public ProductDTP create(ProductDTO movieDTO) {
+    public Optional<ProductDTO> findByType(String type) {
+        return productRepository.
+    }
+
+    @Override
+    public ProductDTO create(ProductDTO movieDTO) {
         movieDTO.setId(null);
 
         Product movieToSave = modelMapper.map(movieDTO, Product.class);
@@ -43,7 +51,7 @@ public class ProductServiceImpl {
 
     @Override
     public void delete(Long id) {
-        Optional<Product> movieToDelete = ProductRepository.findById(id);
+        Optional<Product> movieToDelete = productRepository.findById(id);
 
         if (movieToDelete.isPresent()) {
             productRepository.delete(movieToDelete.get());
