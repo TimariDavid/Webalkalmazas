@@ -1,12 +1,7 @@
-package org.example.entity;
+package org.example.DTO;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class ProductDTO {
 
-@Entity
-public abstract class Product {
-
-    @Id
     private Long id;
     private String productId;
     private String productName;
@@ -20,7 +15,7 @@ public abstract class Product {
 
     private String type;
 
-    public Product(Long id, String productId, String productName, int price, int inStock, String text, String attribute1, String attribute2, String attribute3, String type) {
+    public ProductDTO(Long id, String productId, String productName, int price, int inStock, String text, String attribute1, String attribute2, String attribute3, String type) {
         this.id = id;
         this.productId = productId;
         this.productName = productName;
@@ -33,7 +28,7 @@ public abstract class Product {
         this.type = type;
     }
 
-    public Product() {
+    public ProductDTO() {
     }
 
     public Long getId() {
