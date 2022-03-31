@@ -10,8 +10,6 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext applicationContext = SpringApplication.run(Main.class, args);
 
-        PrintStudents ps = applicationContext.getBean(PrintStudents.class);
-        ps.printStds();
     }
 
 }
