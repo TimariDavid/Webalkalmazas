@@ -12,7 +12,6 @@ public interface ProductService {
 
     Optional<ProductDTO> findById(Long id);
 
-    @Query("SELECT * FROM Product u WHERE u.type = :type")
     Optional<ProductDTO> findByType(String type);
 
     ProductDTO create(ProductDTO productDTO);

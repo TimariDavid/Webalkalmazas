@@ -2,14 +2,17 @@ package org.example.service.impl;
 
 import org.example.DTO.ProductDTO;
 import org.example.entity.Product;
+import org.example.exception.ProductNotFoundException;
 import org.example.repository.ProductRepository;
 import org.example.service.ProductService;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
@@ -36,7 +39,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Optional<ProductDTO> findByType(String type) {
-        return productRepository.
+        return productRepository.findByType(type)
+                .map(m -> modelMapper.map(m, ProductDTO.class));
     }
 
     @Override
@@ -56,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
         if (movieToDelete.isPresent()) {
             productRepository.delete(movieToDelete.get());
         } else {
-            throw new MovieNotFoundException("Movie not found with id=" + id);
+            throw new ProductNotFoundException("Product not found with id=" + id);
         }
     }
 
