@@ -48,10 +48,10 @@ public class ProductController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<ProductDTO> create(@Valid @RequestBody ProductDTO movieDTO, BindingResult bindingResult) {
+    public ResponseEntity<ProductDTO> create(@Valid @RequestBody ProductDTO productDTO, BindingResult bindingResult) {
         checkForRequestErrors(bindingResult);
 
-        ProductDTO savedProduct = productService.create(movieDTO);
+        ProductDTO savedProduct = productService.create(productDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedProduct);
