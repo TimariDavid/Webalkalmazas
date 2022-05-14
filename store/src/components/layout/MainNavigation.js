@@ -1,22 +1,24 @@
-import { Link } from 'react-router-dom'
-import classes from './MainNavigation.module.css'
+import React from 'react';
+import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
+import '../../css/bootstrap.min.css';
 
 function MainNavigation() {
-  return <header className={classes.header}>
-      <nav className={classes.nav}>
-          <ul className={classes.ul}>
-              <li>
-                <Link to='/'>Home</Link>
-              </li>
-              <li>
-                <Link to='/phone'>Phones</Link>
-              </li>
-              <li>
-                <Link to='/tablet'>Tablets</Link>
-              </li>
-          </ul>
-      </nav>
-  </header>;
+  return (
+    <div><Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar.Brand href="/">Home</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/phone">Phone</Nav.Link>
+              <Nav.Link href="/tablet">Tablet</Nav.Link>
+              <Nav.Link href="/watch">Watch</Nav.Link>
+              <Nav.Link href="/tvhome">TV</Nav.Link>
+            </Nav>
+        </Navbar.Collapse>
+    </Navbar>
+
+    </div>
+);
 }
 
 export default MainNavigation;

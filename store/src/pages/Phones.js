@@ -40,7 +40,7 @@ function PhonesPage() {
   return (
     <section>
       <h1>Phones</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <PhoneList phones = {data}/>
     </section>
   );
 }

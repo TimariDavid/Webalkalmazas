@@ -1,15 +1,14 @@
 import PhoneItem from "./PhoneItem";
-import classes from "./PhoneList.module.css";
 
 function PhoneList(props) {
   return (
-    <ul className={classes.list}>
+    <ul>
       {props.phones.map((phone) => (
         <PhoneItem
           key={phone.id}
           id={phone.id}
           image={phone.image}
-          title={phone.title}
+          title={phone.productName}
           ar={phone.ar}
         />
       ))}

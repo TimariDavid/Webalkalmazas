@@ -1,18 +1,18 @@
-import classes from "./PhoneItem.module.css";
 import Card from "./ui/Card";
+import Picture from "../pictures/iphone-12.jpg"
 
 function PhoneItem(props) {
   return (
     <Card>
-      <li className={classes.item}>
-        <div className={classes.content}>
+      <li>
+        <div>
           <h3>{props.title}</h3>
         </div>
-        <div className={classes.image}>
-          <img src={props.image} alt={props.title} />
+        <div>
+         <img src={Picture} alt={props.title}/>
           {props.ar}
         </div>
-        <div className={classes.actions}>
+        <div>
           <button>Buy</button>
         </div>
       </li>

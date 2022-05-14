@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 @Entity
 public class Product {
 
