@@ -12,7 +12,7 @@ public interface ProductService {
 
     Optional<ProductDTO> findById(Long id);
 
-    Optional<ProductDTO> findByType(String type);
+    List<ProductDTO> findByType(String type);
 
     ProductDTO create(ProductDTO productDTO);
 

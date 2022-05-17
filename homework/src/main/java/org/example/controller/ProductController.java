@@ -25,14 +25,14 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping(path = "/")
     public ResponseEntity<List<ProductDTO>> findAll() {
         List<ProductDTO> products = productService.findAll();
 
         return ResponseEntity.ok().body(products);
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    @GetMapping(path = "/{id}")
     public ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
         Optional<ProductDTO> product = productService.findById(id);
 
@@ -40,15 +40,14 @@ public class ProductController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @RequestMapping(path = "/{type}", method = RequestMethod.GET)
-    public ResponseEntity<ProductDTO> findByType(@PathVariable String type) {
-        Optional<ProductDTO> product = productService.findByType(type);
+    @GetMapping(path = "/type/{type}")
+    public ResponseEntity<List<ProductDTO>> findByType(@PathVariable String type) {
+        List<ProductDTO> product = productService.findByType(type);
 
-        return product.map((ResponseEntity::ok))
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        return ResponseEntity.ok().body(product);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public ResponseEntity<ProductDTO> create(@Valid @RequestBody ProductDTO productDTO, BindingResult bindingResult) {
         checkForRequestErrors(bindingResult);
 
@@ -58,7 +57,7 @@ public class ProductController {
                 .body(savedProduct);
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         productService.delete(id);
 

@@ -38,9 +38,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional<ProductDTO> findByType(String type) {
+    public List<ProductDTO> findByType(String type) {
         return productRepository.findByType(type)
-                .map(m -> modelMapper.map(m, ProductDTO.class));
+                .stream()
+                .map(product -> modelMapper.map(product, ProductDTO.class))
+                .collect(Collectors.toList());
     }
 
     @Override
