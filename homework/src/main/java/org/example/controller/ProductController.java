@@ -27,9 +27,9 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<ProductDTO>> findAll() {
-        List<ProductDTO> movies = productService.findAll();
+        List<ProductDTO> products = productService.findAll();
 
-        return ResponseEntity.ok().body(movies);
+        return ResponseEntity.ok().body(products);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
@@ -72,7 +72,7 @@ public class ProductController {
                     .map(this::fieldErrorToMessage)
                     .collect(Collectors.toList());
 
-            throw new InvalidProductRequestException("Invalid movie request", messages);
+            throw new InvalidProductRequestException("Invalid product request", messages);
         }
     }
 

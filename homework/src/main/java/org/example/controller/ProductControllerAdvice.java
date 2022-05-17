@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ProductControllerAdvice {
 
     @ExceptionHandler(value = InvalidProductRequestException.class)
-    public ResponseEntity<BadRequestError> invalidRequestHandler(InvalidProductRequestException invalidMovieRequestException) {
-        BadRequestError badRequestError = new BadRequestError(invalidMovieRequestException.getErrors());
+    public ResponseEntity<BadRequestError> invalidRequestHandler(InvalidProductRequestException invalidProductRequestException) {
+        BadRequestError badRequestError = new BadRequestError(invalidProductRequestException.getErrors());
 
         return ResponseEntity.badRequest()
                 .body(badRequestError);
     }
 
     @ExceptionHandler(value = ProductNotFoundException.class)
-    public ResponseEntity<Void> movieNotFoundHandler(ProductNotFoundException invalidMovieRequestException) {
+    public ResponseEntity<Void> productNotFoundHandler(ProductNotFoundException invalidProductRequestException) {
         return ResponseEntity.notFound().build();
     }
 

@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDTO> findAll() {
         return productRepository.findAll()
                 .stream()
-                .map(movie -> modelMapper.map(movie, ProductDTO.class))
+                .map(product -> modelMapper.map(product, ProductDTO.class))
                 .collect(Collectors.toList());
     }
 
@@ -44,21 +44,21 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDTO create(ProductDTO movieDTO) {
-        movieDTO.setId(null);
+    public ProductDTO create(ProductDTO productDTO) {
+        productDTO.setId(null);
 
-        Product movieToSave = modelMapper.map(movieDTO, Product.class);
-        Product savedMovie = productRepository.save(movieToSave);
+        Product productToSave = modelMapper.map(productDTO, Product.class);
+        Product savedProduct = productRepository.save(productToSave);
 
-        return modelMapper.map(savedMovie, ProductDTO.class);
+        return modelMapper.map(savedProduct, ProductDTO.class);
     }
 
     @Override
     public void delete(Long id) {
-        Optional<Product> movieToDelete = productRepository.findById(id);
+        Optional<Product> productToDelete = productRepository.findById(id);
 
-        if (movieToDelete.isPresent()) {
-            productRepository.delete(movieToDelete.get());
+        if (productToDelete.isPresent()) {
+            productRepository.delete(productToDelete.get());
         } else {
             throw new ProductNotFoundException("Product not found with id=" + id);
         }
