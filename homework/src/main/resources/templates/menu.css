@@ -1,0 +1,142 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+ .home {
+    background-image: url('../static/img/index_image.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+
+  .text {
+    text-align: center; 
+    color: white;
+    margin-top: 1.9cm;
+  }
+
+  #mainContainer {
+    margin: auto;
+    width: 99%;
+    height: 750px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+  
+  #contentContainer {
+    width: 90%;
+    height: 400px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self:auto;
+  }
+  
+  .itemContainer {
+    width: 90%;
+    height: 300px;
+    margin-top: 2cm;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .item {
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px lightgray;
+    background-color: white;
+    margin-right: 1cm;
+    margin-left: 1cm;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  #header {
+    background: rgba(0,0,0,0.8);
+  }
+  
+  #top-navigation BUTTON {
+    display: none;
+  }
+  
+  #top-navigation UL {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #top-navigation UL LI A {
+    color: white;
+    font-weight: 600;
+    display: block;
+    line-height: 3rem;
+    padding: 0 15px;
+    text-decoration: none;
+  }
+  
+  #top-navigation UL LI A:hover {
+    background-color: darkgrey;
+    color: white;
+  }
+  
+  /**
+   * 1em = 16px;
+   * 768px / 16px = 48em
+   */
+  @media screen and (max-width: 48em) {
+    #top-navigation {
+      padding: 0.5em 0;
+      position: relative;
+    }
+  
+    #top-navigation BUTTON {
+      background: grey;
+      border: solid 1px black;
+      color: black;
+      padding: 0 1em;
+      display: block;
+      height: 2em;
+      margin: auto;
+    }
+  
+    #top-navigation BUTTON:active {
+      background: darkgrey;
+      color: white;
+    }
+  
+    #top-navigation UL {
+      background: lightgrey;
+      border: solid 1px darkgrey;
+      display: none;
+      flex-direction: column;
+      gap: 0.5em;
+      left: 1em;
+      position: absolute;
+      right: 1em;
+      top: 100%;
+      z-index: 10;
+    }
+  
+    #top-navigation BUTTON:focus-within + UL {
+      display: flex;
+    }
+}

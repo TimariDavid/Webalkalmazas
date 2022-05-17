@@ -15,6 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "/products")
 public class ProductController {
 
@@ -26,9 +27,9 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<ProductDTO>> findAll() {
-        List<ProductDTO> movies = productService.findAll();
+        List<ProductDTO> products = productService.findAll();
 
-        return ResponseEntity.ok().body(movies);
+        return ResponseEntity.ok().body(products);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
@@ -48,10 +49,10 @@ public class ProductController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<ProductDTO> create(@Valid @RequestBody ProductDTO movieDTO, BindingResult bindingResult) {
+    public ResponseEntity<ProductDTO> create(@Valid @RequestBody ProductDTO productDTO, BindingResult bindingResult) {
         checkForRequestErrors(bindingResult);
 
-        ProductDTO savedProduct = productService.create(movieDTO);
+        ProductDTO savedProduct = productService.create(productDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedProduct);
@@ -71,7 +72,7 @@ public class ProductController {
                     .map(this::fieldErrorToMessage)
                     .collect(Collectors.toList());
 
-            throw new InvalidProductRequestException("Invalid movie request", messages);
+            throw new InvalidProductRequestException("Invalid product request", messages);
         }
     }
 

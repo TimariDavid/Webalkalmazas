@@ -8,7 +8,6 @@ public class ProductDTO {
     private int price;
     private int inStock;
     private String text;
-
     private String attribute1;
     private String attribute2;
     private String attribute3;
