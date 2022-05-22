@@ -1,5 +1,8 @@
 package org.example.DTO;
 
+import javax.persistence.ElementCollection;
+import java.util.Map;
+
 public class ProductDTO {
 
     private Long id;
@@ -7,27 +10,22 @@ public class ProductDTO {
     private String productName;
     private int price;
     private int inStock;
-    private String text;
-    private String attribute1;
-    private String attribute2;
-    private String attribute3;
-
+    private String desc;
     private String type;
+    private Map<String, String> attr;
 
-    public ProductDTO(Long id, String productId, String productName, int price, int inStock, String text, String attribute1, String attribute2, String attribute3, String type) {
+    public ProductDTO() {
+    }
+
+    public ProductDTO(Long id, String productId, String productName, int price, int inStock, String desc, String type, Map<String, String> attr) {
         this.id = id;
         this.productId = productId;
         this.productName = productName;
         this.price = price;
         this.inStock = inStock;
-        this.text = text;
-        this.attribute1 = attribute1;
-        this.attribute2 = attribute2;
-        this.attribute3 = attribute3;
+        this.desc = desc;
         this.type = type;
-    }
-
-    public ProductDTO() {
+        this.attr = attr;
     }
 
     public Long getId() {
@@ -70,36 +68,12 @@ public class ProductDTO {
         this.inStock = inStock;
     }
 
-    public String getText() {
-        return text;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getAttribute1() {
-        return attribute1;
-    }
-
-    public void setAttribute1(String attribute1) {
-        this.attribute1 = attribute1;
-    }
-
-    public String getAttribute2() {
-        return attribute2;
-    }
-
-    public void setAttribute2(String attribute2) {
-        this.attribute2 = attribute2;
-    }
-
-    public String getAttribute3() {
-        return attribute3;
-    }
-
-    public void setAttribute3(String attribute3) {
-        this.attribute3 = attribute3;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getType() {
@@ -108,5 +82,13 @@ public class ProductDTO {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Map<String, String> getAttr() {
+        return attr;
+    }
+
+    public void setAttr(Map<String, String> attr) {
+        this.attr = attr;
     }
 }
