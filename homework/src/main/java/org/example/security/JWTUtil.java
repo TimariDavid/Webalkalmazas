@@ -24,6 +24,7 @@ public class JWTUtil {
                 .withClaim("username", username)
                 .withIssuedAt(new Date())
                 .withIssuer("Product")
+                .withExpiresAt(new Date())
                 .sign(Algorithm.HMAC256(secret));
     }
 

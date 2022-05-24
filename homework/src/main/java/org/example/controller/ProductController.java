@@ -25,7 +25,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping(path = "/")
+    @GetMapping
     public ResponseEntity<List<ProductDTO>> findAll() {
         List<ProductDTO> products = productService.findAll();
 

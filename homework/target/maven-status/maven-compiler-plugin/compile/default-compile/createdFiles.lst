@@ -1,12 +1,12 @@
-org\example\configuration\UtilConfiguration.class
 org\example\entity\Product.class
-org\example\exception\ProductNotFoundException.class
 org\example\service\impl\ProductServiceImpl.class
-org\example\repository\ProductRepository.class
 org\example\response\BadRequestError.class
 org\example\service\ProductService.class
 org\example\exception\InvalidProductRequestException.class
 org\example\Application.class
 org\example\controller\ProductController.class
+org\example\configuration\UtilConfiguration.class
+org\example\exception\ProductNotFoundException.class
+org\example\repository\ProductRepository.class
 org\example\controller\ProductControllerAdvice.class
 org\example\DTO\ProductDTO.class
