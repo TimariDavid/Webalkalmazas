@@ -10,3 +10,5 @@ spring:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+jwt_secret: ashvburbuvlga
