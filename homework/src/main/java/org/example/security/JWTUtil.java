@@ -10,6 +10,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 @Component
@@ -24,7 +25,7 @@ public class JWTUtil {
                 .withClaim("username", username)
                 .withIssuedAt(new Date())
                 .withIssuer("Product")
-                .withExpiresAt(new Date())
+                .withExpiresAt(new Date(startExpirationPeriod(100000000)))
                 .sign(Algorithm.HMAC256(secret));
     }
 
@@ -32,10 +33,14 @@ public class JWTUtil {
         JWTVerifier verifier = JWT.require(Algorithm.HMAC256(secret))
                 .withSubject("User detail")
                 .withIssuer("Product")
+                .acceptExpiresAt(4)
                 .build();
 
         DecodedJWT jwt = verifier.verify(token);
         return jwt.getClaim("username").asString();
     }
 
+    public long startExpirationPeriod(int timeToLive) {
+        return System.currentTimeMillis() + timeToLive * 1000;
+    }
 }
