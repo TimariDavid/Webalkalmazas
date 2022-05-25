@@ -2,7 +2,7 @@ import PhoneItem from "./PhoneItem";
 
 function PhoneList(props) {
   return (
-    <ul>
+    <ul style={ulSize}>
       {props.phones.map((phone) => (
         <PhoneItem
           key={phone.id}
@@ -17,3 +17,7 @@ function PhoneList(props) {
 }
 
 export default PhoneList;
+
+const ulSize = {
+  overflow: 'hidden'
+}
