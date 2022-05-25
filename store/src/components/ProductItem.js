@@ -1,7 +1,10 @@
 import Card from "./ui/Card";
-import Picture from "../pictures/iphone-12.jpg"
+import Iphone11 from "../pictures/iphone_11.jpg"
+import Iphone12 from "../pictures/iphone_12.jpg"
+import Iphone13 from "../pictures/iphone_13.jpg"
+import IphoneSe from "../pictures/iphone_se.jpg"
 
-function PhoneItem(props) {
+function ProductItem(props) {
   return (
     <Card>
       <li style={liSize}>
@@ -10,8 +13,8 @@ function PhoneItem(props) {
               <h3 className="text-center">{props.title}</h3>
             </div>
             <div>
-              <img  style={pictureSize} src={Picture} alt={props.title} />
-              {props.ar}
+                <img style={pictureSize} src={"../pictures/".concat(props.ProductId).concat(".jpg")} alt={props.ProductId} />
+                {props.ar}
             </div>
             <div>
               <button style={button}>Vásárol</button>
@@ -22,7 +25,7 @@ function PhoneItem(props) {
   );
 }
 
-export default PhoneItem;
+export default ProductItem;
 
 const item = {
   width: '300px',

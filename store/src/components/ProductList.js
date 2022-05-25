@@ -7,6 +7,7 @@ function PhoneList(props) {
         <PhoneItem
           key={phone.id}
           id={phone.id}
+          productId ={phone.productId}
           image={phone.image}
           title={phone.productName}
           ar={phone.ar}
