@@ -1,4 +1,4 @@
-import PhoneItem from "./PhoneItem";
+import PhoneItem from "./ProductItem";
 
 function PhoneList(props) {
   return (

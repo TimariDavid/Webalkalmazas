@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PhoneList from "../components/PhoneList";
+import PhoneList from "../components/ProductList";
 
 function PhonesPage() {
 
@@ -9,7 +9,7 @@ function PhonesPage() {
 
   useEffect(() => {
     fetch(
-      "http://localhost:8080/products"
+      "http://localhost:8080/products/type/phone"
     )
       .then((response) => {
         if (response.ok) {
@@ -39,7 +39,7 @@ function PhonesPage() {
 
   return (
     <section>
-      <h1>Phones</h1>
+      <h1 className="text-center my-3">Apple iPhone</h1>
       <PhoneList phones = {data}/>
     </section>
   );
