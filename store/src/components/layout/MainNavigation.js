@@ -13,6 +13,8 @@ function MainNavigation() {
               <Nav.Link href="/tablet">Tablet</Nav.Link>
               <Nav.Link href="/watch">Watch</Nav.Link>
               <Nav.Link href="/tvhome">TV</Nav.Link>
+              <Nav.Link href="/login">Login</Nav.Link>
+              <Nav.Link href="/register">Register</Nav.Link>
             </Nav>
         </Navbar.Collapse>
     </Navbar>

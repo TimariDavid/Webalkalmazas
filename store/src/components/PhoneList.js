@@ -1,3 +1,4 @@
+import React, { Component }  from 'react';
 import PhoneItem from "./PhoneItem";
 
 function PhoneList(props) {

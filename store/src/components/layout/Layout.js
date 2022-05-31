@@ -1,3 +1,4 @@
+import React, { Component }  from 'react';
 import MainNavigation from './MainNavigation';
 
 function Layout(props) {

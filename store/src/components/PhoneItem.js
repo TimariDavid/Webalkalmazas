@@ -1,3 +1,4 @@
+import React, { Component }  from 'react';
 import Card from "./ui/Card";
 import Picture from "../pictures/iphone-12.jpg"
 

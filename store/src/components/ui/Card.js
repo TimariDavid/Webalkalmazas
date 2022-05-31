@@ -1,3 +1,5 @@
+import React, { Component }  from 'react';
+
 function Card(props) {
     return (
         <div style={divSize}>
